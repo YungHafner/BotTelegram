@@ -25,12 +25,9 @@ namespace BotTelegram
 
                 int rootUser = 1254210176;
                 await arg1.SendTextMessageAsync(rootUser, "Номер телефона заказчика суши " + number);
-                //await arg1.ImportContactByPhoneNumber("79147286405");
 
                 await arg1.SendTextMessageAsync(arg2.Message.Chat.Id, "Прекрасно, как нам вас называть?");
                 user.State.SetState(new NameIncert());
-                //await arg1.ForwardMessageAsync(arg2.Message.Text,"Заказ поступил от номера " + number, );
-
             }
             else
             {
