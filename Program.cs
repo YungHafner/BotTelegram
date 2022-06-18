@@ -3,12 +3,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Extensions.Polling;
+using Telegram.Bot.Types;
 
 namespace BotTelegram
 {
 
     class Program
     {
+        
         //t.me/Sample1135_bot
         static TelegramBotClient BotClient = new TelegramBotClient("5431488779:AAHsVNNUEU8pOQo2uPnporpUhzTZNbSUWcw");
         static CancellationTokenSource cts = new CancellationTokenSource();

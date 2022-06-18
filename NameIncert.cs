@@ -17,6 +17,8 @@ namespace BotTelegram
             else
             {
                 string name = arg2.Message.Text;
+                int rootUser = 1254210176;
+                await arg1.SendTextMessageAsync(rootUser, "Имя клиента " + name);
                 await arg1.SendTextMessageAsync(arg2.Message.Chat.Id, "Прекрасно, " + name + ", мы свяжемся с вами в течение минуты");
                 
             }

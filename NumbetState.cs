@@ -24,7 +24,7 @@ namespace BotTelegram
                 parsePhone();
 
                 int rootUser = 1254210176;
-                await arg1.SendTextMessageAsync(rootUser, "Номер телефона заказчика суши " + number);
+                await arg1.SendTextMessageAsync(rootUser, number + "номер телефона заказчика суши. " );
 
                 await arg1.SendTextMessageAsync(arg2.Message.Chat.Id, "Прекрасно, как нам вас называть?");
                 user.State.SetState(new NameIncert());

@@ -18,7 +18,7 @@ namespace BotTelegram
             {
                 
                 await arg1.SendTextMessageAsync(arg2.Message.Chat.Id,
-                    "Отлично введите свой номер телефона начиная с восьмёрки для уточнения условий заказа");
+                    "Отлично, введите свой номер телефона начиная с восьмёрки для уточнения условий заказа");
                 user.State.SetState(new NumbetState());
             }
         }

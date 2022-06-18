@@ -14,11 +14,13 @@ namespace BotTelegram
     {
         internal override async Task UpdateHandler(User user, Telegram.Bot.ITelegramBotClient arg1, Update arg2)
         {
+            
             if (arg2.Message == null)
             return;
 
             if (arg2.Message.Text == "/info")
             {
+                Console.WriteLine(user.Id);
                 await arg1.SendTextMessageAsync(arg2.Message.Chat.Id, "/start запустите бота.\n Данный бот содержит навигационные подсказки для каждого пользователя.\n /menu - актуальное меню \n Для вас с заботой ♥");
             }
 
@@ -34,7 +36,7 @@ namespace BotTelegram
             {
                 await arg1.SendTextMessageAsync(arg2.Message.Chat.Id, "Приветствуем вас в Sushimi Hub.\n Чтобы заказать суши введите /buy");
                 user.State.SetState(new InfoState()); // тут указываем класс-обработчик новых команд, таких классов может быть дофига
-                Console.WriteLine(user.Id);
+                
             }
                 
             
