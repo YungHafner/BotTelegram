@@ -31,7 +31,7 @@ namespace BotTelegram
             }
             else
             {
-                await arg1.SendTextMessageAsync(arg2.Message.Chat.Id, "Некорректный номер телефона.\n Пожалуйста введите номер телефона без пробелов, скобок, тире.\n Номер должен начинаться с 8 и должен состоять из 11 цыфр ");
+                await arg1.SendTextMessageAsync(arg2.Message.Chat.Id, "Некорректный номер телефона.\n Пожалуйста введите номер телефона без пробелов, скобок, тире.\n Номер должен начинаться с 8 и должен состоять из 11 цыфр");
                 user.State.SetState(new InfoState());
             }
         }
