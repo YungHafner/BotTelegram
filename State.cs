@@ -9,6 +9,7 @@ namespace BotTelegram
 {
     public abstract class State
     {
+        public int id { get; set; }
         internal abstract Task UpdateHandler(User user, Telegram.Bot.ITelegramBotClient arg1, Update arg2);
     }
 }

@@ -20,13 +20,42 @@ namespace BotTelegram
             else
             {   
                 string name = arg2.Message.Text;
+
+                ObservableCollection<User> parseName()
+                {
+                    
+                    string query = $"INSERT INTO phonebook ( nameUser) VALUE ('{name}')";
+
+                    ObservableCollection<User> result = new ObservableCollection<User>();
+                    var MySqlDB = DBMySqlUtils.GetDB();
+                    if (MySqlDB.OpenConnection())
+                    {
+                        using (MySqlCommand mc = new MySqlCommand(query, MySqlDB.conn))
+                        using (MySqlDataReader dr = mc.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                result.Add(new User
+                                {
+                                    Id = dr.GetInt32("id"),
+                                    UserName = dr.GetString("nameUser"),
+
+                                });
+                            }
+                        }
+                        MySqlDB.CloseConnection();
+                    }
+
+                    return result;
+                }
+                id = +1;
                 int rootUser = 1254210176;
                 await arg1.SendTextMessageAsync(rootUser, "Имя заказчика суши " + name);
-                await arg1.SendTextMessageAsync(arg2.Message.Chat.Id,  "Прекрасно, " + name + ", мы свяжемся с вами в течение минуты");
-                
+                await arg1.SendTextMessageAsync(arg2.Message.Chat.Id, "Прекрасно, " + name + ", мы свяжемся с вами в течение минуты");
                 getPhone();
-                user.State.SetState(new DefaultState());
             }
+
+            
         }
         public ObservableCollection<User> getPhone()
         {
